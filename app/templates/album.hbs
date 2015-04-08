@@ -7,13 +7,8 @@
 <table class="album-listing">
 {{!-- since the song belongs to an album we can access songs from the album model which is denoted as 'model' --}}
   {{#each song in model.songs}}
-  <tr>
-    <td class="song-track">
-      <span class="track-number">{{song.track}}</span>
-    </td>
-    <td class="song-name">{{song.name}}</td>
-    <td class="song-duration">{{format-duration song.duration}}</td>
-  </tr>
+    {{!-- uses the song-row component and passed in a song model to be used in the song-row template  --}}
+    {{song-row song=song}}
   {{/each}}
   <tr>
     <td class="total-duration" colspan="3">Total Time: {{format-duration model.totalDuration}}</td>

@@ -1,0 +1,14 @@
+{{!-- Included a toggle action here that is noted in the component to toggle a property isPlaying to true or false --}}
+<td class="song-track">
+    <span class="track-number">
+      {{song.track}}
+    </span>
+    <span class="play" {{action "toggle"}}>
+    {{!-- if isPlaying true show pause else show play shorthand --}}
+      {{if isPlaying '❙❙' '▶'}}
+
+    </span>
+  </td>
+  <td class="song-name">{{song.name}}</td>
+  <td class="song-duration">{{format-duration song.duration}}</td>
+
