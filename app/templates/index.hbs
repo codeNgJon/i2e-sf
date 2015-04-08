@@ -1,5 +1,5 @@
 <div class="album-list">
-  {{#each model as |album|}}
+  {{#each album in model}}
     <div class="album">
       {{#link-to 'album' album}}
         <img src="{{album.artwork}}">

@@ -32,14 +32,11 @@ import { test, moduleForComponent } from 'ember-qunit';
 import { exists } from '../helpers/assertions';
 import step from '../helpers/step';
 import resolver from '../helpers/resolver';
+import { formatDuration as helper } from 'bumbox/helpers/format-duration';
 
 step(7, "Add a Helper");
 
 test("The helper correctly formats number of seconds into human-readable strings", function(assert) {
-  var helper = resolver.resolve('helper:format-duration');
-  assert.ok(helper, "The format-duration helper exists");
-  helper = helper._rawFunction;
-
   assert.equal(helper(0), '0:00', "0 is converted into 0:00");
   assert.equal(helper(8), '0:08', "Less than 10 seconds gets 0-padded");
   assert.equal(helper(20), '0:20', "Numbers with trailing zeros are not truncated");
