@@ -8,18 +8,21 @@ export default DS.Model.extend({
   artist: attr('string'),
   isExplicit: attr('boolean'),
   songs: hasMany('song'),
+//ember uses get and set to retrieve object property values in this case from the album which has many songs
+//ember computed has properties we can use like @each, mapBy, sum ,etc
+  totalDuration: Ember.computed('songs.@each.duration',function(){
+    return this.get('songs').reduce(function(sum, song){
+      return sum + song.get('duration');
+    }, 0);
+  }),
 
-  // totalDuration: function(){
-  //   var songs = this.get('songs');
-  //   var total = 0;
-  //   songs.forEach(function(song){
-  //     total += songs.get("duration");
-  //   })
-  //   return total;
-  // }.property('songs.@each.duration')
-  duration: Ember.computed.mapBy('songs', 'duration'),
-  totalDuration: Ember.computed.sum('duration')
-  // songCount: Ember.computed.sum('songs')
+  songCount: Ember.computed('songs.@each',function(){
+    return this.get('songs').length;
+  })
+
+  // this is the equivalent of the totalDuration code above using ember computed methods
+  // duration: Ember.computed.mapBy('songs', 'duration'),
+  // totalDuration: Ember.computed.sum('duration')
 });
 
 
