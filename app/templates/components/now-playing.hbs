@@ -1,0 +1,27 @@
+{{#if player.isPlaying}}
+
+<footer class="now-playing">
+  {{!-- you can accesss the album's properties from the song because there is a two way relationship built between them --}}
+  <img class="now-playing-artwork" src="{{player.song.album.artwork}}">
+  <div class="now-playing-body">
+    <p class="now-playing-details">
+      <span class="now-playing-name">{{player.song.name}}</span> -
+      <span class="now-playing-artist">{{player.song.album.artist}}</span>
+    </p>
+    <div class="now-playing-player">
+      <p class="duration">
+        {{format-duration player.currentTime}}
+      </p>
+    </div>
+  </div>
+  {{audio-control}}
+</footer>
+
+{{else}}
+
+<footer class="now-playing">
+  <span class="now-playing-empty">Select a song to start playing.</span>
+  {{audio-control}}
+</footer>
+
+{{/if}}

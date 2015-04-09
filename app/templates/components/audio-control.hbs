@@ -1,0 +1,9 @@
+{{#if player.isPlaying}}
+<span class="audio-control">
+  <span {{action 'pause'}}>❙❙</span>
+</span>
+{{else}}
+<span class="audio-control">
+  <span {{action 'play'}}>▶</span>
+</span>
+{{/if}}

@@ -51,15 +51,15 @@ test("Clicking a song-row play button plays a song", function(assert) {
   propertyShouldBecome(player, 'isPlaying', true, assert.async());
 });
 
-test("Eventually isPlaying becomes false when the song is paused", function(assert) {
-  var song = Ember.Object.create({url: 'audio/Southern_Nights_-_07_-_All_My_Sorrows.mp3'});
+// test("Eventually isPlaying becomes false when the song is paused", function(assert) {
+//   var song = Ember.Object.create({url: 'audio/Southern_Nights_-_07_-_All_My_Sorrows.mp3'});
 
-  player.play(song);
-  propertyShouldBecome(player, 'isPlaying', true, assert.async());
+//   player.play();
+//   propertyShouldBecome(player, 'isPlaying', true, assert.async());
 
-  player.pause();
-  propertyShouldBecome(player, 'isPlaying', false, assert.async());
-});
+//   player.pause();
+//   propertyShouldBecome(player, 'isPlaying', false, assert.async());
+// });
 
 test("Clicking the song-row pause button pauses the player", function(assert) {
   visit('album/1');
